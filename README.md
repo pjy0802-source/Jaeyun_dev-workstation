@@ -138,3 +138,15 @@ Docker의 기본 동작을 확인했다.
 - Docker 기본 동작을 직접 실습했다.
 - 컨테이너 생성, 시작, 종료, 삭제의 차이를 이해했다.
 - `exec`와 `attach`의 개념 차이를 정리했다.
+## Docker 운영 명령 실습
+
+| 명령어 | 설명 | 결과 |
+|--------|------|------|
+| `docker ps` | 실행 중인 컨테이너 확인 | my-web 확인 |
+| `docker ps -a` | 전체 컨테이너 확인 | 동일 |
+| `docker images` | 이미지 목록 확인 | my-nginx:1.0 확인 |
+| `docker logs my-web` | 컨테이너 로그 확인 | nginx 접속 기록 확인 |
+| `docker stop my-web` | 컨테이너 중지 | 정상 중지 |
+| `docker start my-web` | 컨테이너 재시작 | 정상 재시작 |
+## 포트 매핑 확인
+![포트 매핑 확인](images/port-mapping-8080.png)
