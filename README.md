@@ -150,3 +150,16 @@ Docker의 기본 동작을 확인했다.
 | `docker start my-web` | 컨테이너 재시작 | 정상 재시작 |
 ## 포트 매핑 확인
 ![포트 매핑 확인](images/port-mapping-8080.png)
+
+## 📚 실습 진행 현황
+
+### ✅ 완료
+- [x] 환경 구성 (Git, Docker 설치 확인)
+- [x] GitHub 저장소 연결
+- [x] Dockerfile 작성 및 nginx 이미지 빌드
+- [x] Docker 컨테이너 실행 및 운영 명령어
+- [x] 바인드 마운트 실습 (실시간 파일 반영 확인)
+
+### 🔄 진행 예정
+- [ ] Docker 볼륨(Volume) 실습
+- [ ] Docker Compose 실습
