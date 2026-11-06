@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  web:
+    image: my-nginx:1.0
+    ports:
+      - "8080:80"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"

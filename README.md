@@ -164,3 +164,34 @@ Docker의 기본 동작을 확인했다.
 ### 🔄 진행 예정
 - [ ] Docker 볼륨(Volume) 실습
 - [ ] Docker Compose 실습
+---
+
+## 미션 2 - Docker Compose 실습
+
+### 실습 날짜
+2025-07-xx
+
+### 구성 환경
+- web : my-nginx:1.0 (포트 8080)
+- redis : redis:alpine (포트 6379)
+
+### 실습한 명령어
+
+| 명령어 | 설명 |
+|--------|------|
+| docker compose up -d | 백그라운드 멀티 컨테이너 실행 |
+| docker compose ps | 실행 중인 컨테이너 목록 확인 |
+| docker compose pause | 프로세스 일시 동결 |
+| docker compose unpause | 동결 해제 |
+| docker compose stop | 컨테이너 중지 (삭제 안됨) |
+| docker compose start | 중지된 컨테이너 재시작 |
+| docker compose down | 컨테이너 + 네트워크 완전 삭제 |
+
+### 핵심 개념
+- pause : 메모리 유지, 프로세스만 동결
+- stop  : 컨테이너 유지, 프로세스 종료
+- down  : 컨테이너 + 네트워크 완전 삭제
+
+### 결과
+- localhost:8080 nginx 정상 확인
+- redis + web 동시 운영 성공
