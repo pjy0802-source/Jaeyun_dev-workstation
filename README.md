@@ -195,3 +195,58 @@ Docker의 기본 동작을 확인했다.
 ### 결과
 - localhost:8080 nginx 정상 확인
 - redis + web 동시 운영 성공
+## 3-2. PowerShell 터미널 기본 조작 실습
+
+`mkdir`, `echo`, `cat`, `cp`, `mv`, `rm` 명령어를 사용해 파일과 폴더를 직접 조작하는 실습을 진행했다.
+
+### 사용한 명령어
+
+| 명령어 | 설명 | 결과 |
+|--------|------|------|
+| `pwd` | 현재 경로 확인 | `C:\Jaeyun_dev-workstation` |
+| `ls -Force` | 숨김 파일 포함 목록 확인 | `.git` 포함 전체 구조 확인 |
+| `mkdir test-dir` | 폴더 생성 | `test-dir` 생성 완료 |
+| `echo "hello world" > test-dir/test.txt` | 파일 생성 및 내용 작성 | `test.txt` 생성 |
+| `cat test-dir/test.txt` | 파일 내용 확인 | `hello world` 출력 |
+| `cp test-dir/test.txt test-dir/test-copy.txt` | 파일 복사 | `test-copy.txt` 생성 |
+| `mv test-dir/test-copy.txt test-dir/test-renamed.txt` | 파일 이름 변경 | `test-renamed.txt` 로 변경 |
+| `rm test-dir/test-renamed.txt` | 파일 삭제 | `test-renamed.txt` 삭제 완료 |
+
+### 실습 결과
+- `test-dir` 폴더를 생성하고 파일을 만들어 내용을 확인했다.
+- `cp`로 파일을 복사하고, `mv`로 이름을 변경했다.
+- `rm`으로 파일을 삭제한 뒤 `ls`로 결과를 확인했다.
+- 최종적으로 `test-dir` 안에 `test.txt` 만 남은 것을 확인했다.
+## 미션 3 - Docker 커스텀 이미지 빌드
+
+### 실습 날짜
+2025-07-xx
+
+### 실습 목표
+Dockerfile을 직접 작성하여 커스텀 nginx 이미지를 빌드하고, 컨테이너로 실행해 브라우저에서 확인한다.
+
+---
+
+### 3-1. Dockerfile 작성
+
+`my-nginx:1.0` 이미지를 만들기 위해 아래 Dockerfile을 작성했다.
+
+```dockerfile
+FROM nginx:latest
+COPY index.html /usr/share/nginx/html/index.html
+3-3. 이미지 빌드 및 컨테이너 실행
+명령어	설명	결과
+docker build -t my-nginx:1.0 .	커스텀 이미지 빌드	my-nginx:1.0 생성 완료
+docker images	이미지 목록 확인	my-nginx:1.0 확인
+docker run -d -p 8080:80 --name my-web-container my-nginx:1.0	컨테이너 실행	정상 실행
+docker ps	실행 중인 컨테이너 확인	my-web-container Up 상태 확인
+결과
+localhost:8080 접속 시 "Docker 커스텀 이미지 빌드 성공!" 문구 확인 ✅
+커스텀 HTML 파일이 nginx를 통해 정상 서빙됨을 확인했다.
+핵심 개념 정리
+FROM : 베이스 이미지 지정
+COPY : 로컬 파일을 이미지 안으로 복사
+docker build : Dockerfile을 읽어 이미지를 생성
+-t : 이미지에 이름(태그) 부여
+-d : 백그라운드 실행
+-p 8080:80 : 호스트 8080 → 컨테이너 80 포트 매핑
