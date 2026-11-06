@@ -1,0 +1,284 @@
+**********************
+Windows PowerShell 기록 시작
+시작 시간: 20261107003857
+사용자 이름: 서란신노트북\HP
+RunAs 사용자: 서란신노트북\HP
+구성 이름:
+Machine: 서란신노트북 (Microsoft Windows NT 10.0.19045.0)
+호스트 응용 프로그램: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Users\HP\AppData\Local\Programs\Microsoft VS Code\c4453f8ea4\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+프로세스 ID: 21844
+PSVersion: 5.1.19041.7802
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.7802
+BuildVersion: 10.0.19041.7802
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+기록이 시작되었습니다. 출력 파일은 ./logs/mission1-20261107-003857.txt입니다.
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>notepad .\README.md
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker --version
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker info
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker run hello-world
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker images
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker ps -a
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>git ls-files
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Get-Content .\Dockerfile
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker port my-web-container2
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>curl.exe -i http://localhost:8081
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Get-Location
+
+Path
+----
+C:\Jaeyun_dev-workstation
+
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Resolve-Path .\index.html
+
+Path
+----
+C:\Jaeyun_dev-workstation\index.html
+
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker exec my-web-container2 ls -l /usr/share/nginx/html/index.html
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Set-Content -Path .\persistence-check.txt -Value "Persistence Test" -Encoding ASCII
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker run -d --name mission1-persist-a --mount "type=bind,source=${PWD}/persistence-check.txt,target=/usr/share/nginx/html/test.txt" nginx:alpine
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker exec mission1-persist-a cat /usr/share/nginx/html/test.txt
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker rm -f mission1-persist-a
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Get-Content .\persistence-check.txt
+Persistence Test
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker run -d --name mission1-persist-b --mount "type=bind,source=${PWD}/persistence-check.txt,target=/usr/share/nginx/html/test.txt" nginx:alpine
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker exec mission1-persist-b cat /usr/share/nginx/html/test.txt
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker rm -f mission1-persist-b
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker run -d -p 18080:80 --name mission1-port-a nginx:alpine
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker run -d -p 18080:80 --name mission1-port-b nginx:alpine
+
+]633;D;1]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker ps --filter "publish=18080"
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Get-NetTCPConnection -LocalPort 18080 -State Listen | Select-Object LocalAddress, LocalPort, OwningProcess
+
+LocalAddress LocalPort OwningProcess
+------------ --------- -------------
+::1              18080          5164
+::               18080          7624
+127.0.0.1        18080          5164
+
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Get-NetTCPConnection -LocalPort 18080 -State Listen | ForEach-Object { Get-Process -Id $_.OwningProcess } | Select-Object Id, ProcessName -Unique
+
+  Id ProcessName
+  -- -----------
+5164 wslrelay
+7624 com.docker.backend
+
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker stop mission1-port-a
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker ps --filter "publish=18080"
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker start mission1-port-b
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker port mission1-port-b
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>curl.exe -I http://localhost:18080
+
+]633;D;1]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker rm -f mission1-port-b
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker run -d -p 18080:80 --name mission1-port-b nginx:alpine
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker port mission1-port-b
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>curl.exe -I http://localhost:18080
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker rm -f mission1-port-b
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker run -d -p 18080:80 --name mission1-port-b nginx:alpine
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker port mission1-port-b
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>curl.exe -I http://localhost:18080
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>docker rm -f mission1-port-a mission1-port-b
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Get-Content .\persistence-check.txt
+Persistence Test
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>New-Item -ItemType Directory -Path .\backups -Force
+
+
+    디렉터리: C:\Jaeyun_dev-workstation
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2026-11-07   오전 1:16                backups
+
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Copy-Item .\persistence-check.txt .\backups\persistence-check-backup.txt
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Copy-Item .\backups\persistence-check-backup.txt .\persistence-restored.txt
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Get-Content .\persistence-restored.txt
+Persistence Test
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Get-FileHash .\persistence-check.txt, .\persistence-restored.txt -Algorithm SHA256
+
+Algorithm       Hash                                                                   Pa
+                                                                                       th
+---------       ----                                                                   --
+SHA256          592FA851C79A6475A3E8A6AE3316579668254F3A2ACFBAE036E2026C5EF80673       C:
+SHA256          592FA851C79A6475A3E8A6AE3316579668254F3A2ACFBAE036E2026C5EF80673       C:
+
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>git remote -v
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>git status --short
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>git log -n 3 --oneline
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>git status --short
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Get-ChildItem .\backups, .\logs -File
+
+
+    디렉터리: C:\Jaeyun_dev-workstation\backups
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-11-07  오전 12:59             18 persistence-check-backup.txt
+
+
+    디렉터리: C:\Jaeyun_dev-workstation\logs
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2026-11-07  오전 12:38            933 mission1-20261107-003857.txt
+
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>git add README.md backups/ logs/ persistence-check.txt persistence-restored.txt
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>git diff --cached --stat
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>git diff --cached --check
+
+]633;D;1]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>$cleanupFiles = @(".\README.md") + @(Get-ChildItem .\logs -File -Filter "*.txt" | Select-Object -ExpandProperty FullName)
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+]633;D;0]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>foreach ($file in $cleanupFiles) {
+    $fullPath = (Resolve-Path -LiteralPath $file).Path
+    $content = [System.IO.File]::ReadAllText($fullPath)
+    $content = [regex]::Replace($content, '(?m)[ \t]+(?=\r?$)', '')
+    $content = $content.TrimEnd([char[]]"`r`n") + "`r`n"
+    [System.IO.File]::WriteAllText($fullPath, $content, $utf8NoBom)
+}
+"1"개의 인수가 있는 "ReadAllText"을(를) 호출하는 동안 예외가 발생했습니다. "'C:\Jaeyun_dev-workstation\logs\mission1-20261107-003857.txt' 파일은 다른
+ 프로세스에서 사용 중이므로 프로세스에서 액세스할 수 없습니다."
+위치 줄:3 문자:5
++     $content = [System.IO.File]::ReadAllText($fullPath)
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : IOException
+"1"개의 인수가 있는 "ReadAllText"을(를) 호출하는 동안 예외가 발생했습니다. "'C:\Jaeyun_de
+v-workstation\logs\mission1-20261107-003857.txt' 파일은 다른 프로세스에서 사용 중이므로
+프로세스에서 액세스할 수 없습니다."
+위치 줄:3 문자:5
++     $content = [System.IO.File]::ReadAllText($fullPath)
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : IOException
+
+"3"개의 인수가 있는 "WriteAllText"을(를) 호출하는 동안 예외가 발생했습니다. "'C:\Jaeyun_dev-workstation\logs\mission1-20261107-003857.txt' 파일은 다
+른 프로세스에서 사용 중이므로 프로세스에서 액세스할 수 없습니다."
+위치 줄:6 문자:5
++     [System.IO.File]::WriteAllText($fullPath, $content, $utf8NoBom)
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : IOException
+"3"개의 인수가 있는 "WriteAllText"을(를) 호출하는 동안 예외가 발생했습니다. "'C:\Jaeyun_d
+ev-workstation\logs\mission1-20261107-003857.txt' 파일은 다른 프로세스에서 사용 중이므로
+프로세스에서 액세스할 수 없습니다."
+위치 줄:6 문자:5
++     [System.IO.File]::WriteAllText($fullPath, $content, $utf8NoBom)
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : IOException
+
+]633;D;1]633;A]633;P;Cwd=C:\x5cJaeyun_dev-workstationPS C:\Jaeyun_dev-workstation> ]633;B
+PS>Stop-Transcript
+**********************
+Windows PowerShell 기록 끝
+종료 시간: 20261107012257
+**********************
