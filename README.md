@@ -162,8 +162,8 @@ Docker의 기본 동작을 확인했다.
 - [x] 바인드 마운트 실습 (실시간 파일 반영 확인)
 
 ### 🔄 진행 예정
-- [ ] Docker 볼륨(Volume) 실습
-- [ ] Docker Compose 실습
+- [x] Docker 볼륨(Volume) 실습
+- [x] Docker Compose 실습
 ---
 
 ## 미션 2 - Docker Compose 실습
